@@ -17,8 +17,6 @@ public enum AccountStatus {
     AccountStatus(String accountStatus) {
         this.accountStatus = accountStatus;
     }
-
-
 }
 
 @Converter(autoApply = true)
