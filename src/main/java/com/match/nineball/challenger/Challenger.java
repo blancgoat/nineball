@@ -1,7 +1,7 @@
-package com.match.nineball.room;
+package com.match.nineball.challenger;
 
 import com.match.nineball.account.Account;
-import com.match.nineball.challenger.Room;
+import com.match.nineball.room.Room;
 
 import javax.persistence.*;
 
@@ -22,8 +22,8 @@ public class Challenger {
     @JoinColumn(name = "account_id", nullable = false)
     private Account account;
 
-    @Column(name = "is_active", nullable = false)
-    private Boolean isActive = true;
+    @Column(name = "is_delete", nullable = false)
+    private Boolean isDelete = false;
 
     @Column(name = "is_master", nullable = false)
     private Boolean isMaster;

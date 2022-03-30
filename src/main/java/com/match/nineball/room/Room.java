@@ -1,4 +1,4 @@
-package com.match.nineball.challenger;
+package com.match.nineball.room;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
