@@ -11,12 +11,12 @@ public class AccountDto {
 
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     @Getter
-    public static class PostReq {
+    public static class AccountPostReq {
         private String nickname;
         private String phone;
 
         @Builder
-        PostReq(String nickname, String phone) {
+        AccountPostReq(String nickname, String phone) {
             this.nickname = nickname;
             this.phone = phone;
         }

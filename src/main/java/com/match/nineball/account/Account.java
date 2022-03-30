@@ -2,13 +2,23 @@ package com.match.nineball.account;
 
 import com.match.nineball.account.enums.AccountStatus;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@NoArgsConstructor
+@Getter
 @Table(name = "account")
 public class Account {
+
+    @Builder(builderMethodName = "builder")
+    public Account(String nickname, String phone) {
+        this.nickname = nickname;
+        this.phone = phone;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,12 +35,6 @@ public class Account {
 
     @Column(nullable = false)
     private String phone;
-
-    @Builder(builderMethodName = "builder")
-    public Account(String nickname, String phone) {
-        this.nickname = nickname;
-        this.phone = phone;
-    }
 
     @Override
     public String toString() {

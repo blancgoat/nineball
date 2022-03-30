@@ -19,7 +19,7 @@ public class AccountService {
     }
 
     @Transactional
-    public Account createAccount(AccountDto.PostReq req) {
+    public Account createAccount(AccountDto.AccountPostReq req) {
         return accountRepository.save(req.toEntity());
     }
 }

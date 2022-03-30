@@ -2,10 +2,7 @@ package com.match.nineball.account;
 
 import com.match.nineball.account.dto.AccountDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
@@ -15,7 +12,12 @@ public class AccountController {
     private final AccountService accountService;
 
     @PostMapping
-    public Account postAccount(@RequestBody AccountDto.PostReq req) {
+    public Account postAccount(@RequestBody AccountDto.AccountPostReq req) {
         return accountService.createAccount(req);
+    }
+
+    @GetMapping("/{id}")
+    public Account getAccount(@PathVariable Long id) {
+        return accountService.getAccount(id);
     }
 }

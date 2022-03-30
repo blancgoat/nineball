@@ -2,10 +2,14 @@ package com.match.nineball.challenger;
 
 import com.match.nineball.account.Account;
 import com.match.nineball.room.Room;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Entity
+@NoArgsConstructor
+@Getter
 @Table(name = "challenger")
 public class Challenger {
 
