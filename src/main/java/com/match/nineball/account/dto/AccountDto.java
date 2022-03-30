@@ -13,18 +13,15 @@ public class AccountDto {
     @Getter
     public static class AccountPostReq {
         private String nickname;
-        private String phone;
 
         @Builder
         AccountPostReq(String nickname, String phone) {
             this.nickname = nickname;
-            this.phone = phone;
         }
 
         public Account toEntity() {
             return Account.builder()
                     .nickname(nickname)
-                    .phone(phone)
                     .build();
         }
     }

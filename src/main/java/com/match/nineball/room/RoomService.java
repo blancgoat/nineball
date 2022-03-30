@@ -10,7 +10,6 @@ import java.time.LocalTime;
 
 @Service
 @RequiredArgsConstructor
-@Transactional
 public class RoomService {
 
     private final RoomRepository roomRepository;
