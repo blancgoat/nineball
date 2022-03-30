@@ -32,7 +32,7 @@ public class Social {
     @Column(name = "auth_key", nullable = false)
     private String authKey;
 
-    @Builder(builderMethodName = "builder")
+    @Builder()
     public Social(Account account, Provider provider, String authKey) {
         this.account = account;
         this.provider = provider;

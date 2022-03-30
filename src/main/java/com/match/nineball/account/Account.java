@@ -27,10 +27,10 @@ public class Account {
     @Column(nullable = false)
     private String nickname;
 
-    @OneToOne(mappedBy = "account")
-    private Social social;
+//    @OneToOne(mappedBy = "account")
+//    private Social social;
 
-    @Builder(builderMethodName = "builder")
+    @Builder()
     public Account(String nickname) {
         this.nickname = nickname;
     }

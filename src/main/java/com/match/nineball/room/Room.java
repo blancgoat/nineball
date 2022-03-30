@@ -14,17 +14,6 @@ import java.util.Objects;
 @Table(name = "room")
 public class Room {
 
-    @Builder(builderMethodName = "builder")
-    public Room(LocalDateTime matchUpStart, LocalDateTime matchUpEnd, LocalDateTime matchStart, LocalDateTime matchEnd, String address, double addressX, double addressY) {
-        this.matchUpStart = matchUpStart;
-        this.matchUpEnd = matchUpEnd;
-        this.matchStart = matchStart;
-        this.matchEnd = matchEnd;
-        this.address = address;
-        this.addressX = addressX;
-        this.addressY = addressY;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
@@ -53,6 +42,17 @@ public class Room {
 
     @Column(name = "address_y", nullable = false)
     private double addressY;
+
+    @Builder()
+    public Room(LocalDateTime matchUpStart, LocalDateTime matchUpEnd, LocalDateTime matchStart, LocalDateTime matchEnd, String address, double addressX, double addressY) {
+        this.matchUpStart = matchUpStart;
+        this.matchUpEnd = matchUpEnd;
+        this.matchStart = matchStart;
+        this.matchEnd = matchEnd;
+        this.address = address;
+        this.addressX = addressX;
+        this.addressY = addressY;
+    }
 
     @Override
     public String toString() {
