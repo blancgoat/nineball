@@ -1,4 +1,4 @@
-package com.match.nineball.social.enums;
+package com.match.nineball.account.enums;
 
 import lombok.Getter;
 

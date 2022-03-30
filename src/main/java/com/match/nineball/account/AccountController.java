@@ -1,6 +1,6 @@
 package com.match.nineball.account;
 
-import com.match.nineball.account.dto.AccountDto;
+import com.match.nineball.account.dto.SocialDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,13 +11,13 @@ public class AccountController {
 
     private final AccountService accountService;
 
-    @PostMapping
-    public Account postAccount(@RequestBody AccountDto.AccountPostReq req) {
-        return accountService.createAccount(req);
+    @PostMapping()
+    public Social postAccount(@RequestBody SocialDto req) {
+        return accountService.createAccountAndSocial(req);
     }
 
     @GetMapping("/{id}")
-    public Account getAccount(@PathVariable Long id) {
-        return accountService.getAccount(id);
+    public Social getAccount(@PathVariable Long id) {
+        return accountService.getAccountAndSocialByAccountId(id);
     }
 }

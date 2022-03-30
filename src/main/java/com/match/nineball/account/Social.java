@@ -1,8 +1,6 @@
-package com.match.nineball.social;
+package com.match.nineball.account;
 
-import com.match.nineball.account.Account;
-import com.match.nineball.account.AccountRepository;
-import com.match.nineball.social.enums.Provider;
+import com.match.nineball.account.enums.Provider;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

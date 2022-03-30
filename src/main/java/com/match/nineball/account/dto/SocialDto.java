@@ -1,9 +1,8 @@
-package com.match.nineball.social.dto;
+package com.match.nineball.account.dto;
 
 import com.match.nineball.account.Account;
-import com.match.nineball.account.dto.AccountDto;
-import com.match.nineball.social.Social;
-import com.match.nineball.social.enums.Provider;
+import com.match.nineball.account.Social;
+import com.match.nineball.account.enums.Provider;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;

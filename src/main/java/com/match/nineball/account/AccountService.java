@@ -1,7 +1,7 @@
 package com.match.nineball.account;
 
-import com.match.nineball.account.dto.AccountDto;
 import com.match.nineball.account.enums.AccountStatus;
+import com.match.nineball.account.dto.SocialDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,15 +10,16 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class AccountService {
 
-    private final AccountRepository accountRepository;
-
-    @Transactional(readOnly = true)
-    public Account getAccount(Long id) {
-        return accountRepository.findByIdAndStatus(id, AccountStatus.ACTIVE);
-    }
+    private final AccountRepository socialRepository;
 
     @Transactional
-    public Account createAccount(AccountDto.AccountPostReq req) {
-        return accountRepository.save(req.toEntity());
+    public Social createAccountAndSocial(SocialDto req) {
+        return socialRepository.save(req.toEntity());
     }
+
+    @Transactional(readOnly = true)
+    public Social getAccountAndSocialByAccountId(Long id) {
+        return socialRepository.findSocialByAccountIdAndStatus(id, AccountStatus.ACTIVE);
+    }
+
 }
