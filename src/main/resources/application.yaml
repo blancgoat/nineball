@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    url: jdbc:mysql://localhost:3306/nineball?useSSL=false&allowPublicKeyRetrieval=true&useUnicode=true
+    password: zldqhdtn!234
+  jpa:
+    open-in-view: false
+    database: mysql
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+logging:
+  level:
+    org:
+      hibernate:
+        type:
+          descriptor:
+            sql: trace
