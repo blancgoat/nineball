@@ -10,13 +10,13 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-public class SocialDto {
+public class CreateAccountDto {
     String nickname;
     Provider provider;
     String authKey;
 
     @Builder
-    public SocialDto(String nickname, Provider provider, String authKey) {
+    public CreateAccountDto(String nickname, Provider provider, String authKey) {
         this.nickname = nickname;
         this.provider = provider;
         this.authKey = authKey;
