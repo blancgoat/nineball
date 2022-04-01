@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @RequiredArgsConstructor
 @RestController
@@ -28,9 +28,9 @@ public class GameController {
 
     @GetMapping
     public Iterable<Game> getGamesByDate(
-            @DateTimeFormat(pattern = "yyyyMMddHHmmss")
-            @Parameter(schema = @Schema(type = "string", format = "date", example = "20220217000000"))
-            @RequestParam(name = "date") LocalDateTime paramDate) {
+            @DateTimeFormat(pattern = "yyyyMMdd")
+            @Parameter(schema = @Schema(type = "string", format = "date", example = "20220217"))
+            @RequestParam(name = "date") LocalDate paramDate) {
         return gameService.getGamesByDate(paramDate);
     }
 }
