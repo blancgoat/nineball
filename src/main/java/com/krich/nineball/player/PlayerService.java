@@ -18,20 +18,11 @@ public class PlayerService {
 
     @Transactional
     public Player createPlayer(RequestPlayerDto requestPlayerDto) {
-//        CreatePlayerDto createPlayerDto = requestPlayerDto.toCreate(
-//                gameRepository.findById(requestPlayerDto.getGameId()).orElseThrow(),
-//                accountRepository.findById(requestPlayerDto.getAccountId()).orElseThrow()
-//        );
-//        return playerRepository.save(createPlayerDto.toEntity());
         return playerRepository.save(CreatePlayerDto.builder()
                 .game(gameRepository.findById(requestPlayerDto.getGameId()).orElseThrow())
                 .account(accountRepository.findById(requestPlayerDto.getAccountId()).orElseThrow())
                 .isMaster(requestPlayerDto.getIsMaster())
                 .team(requestPlayerDto.getTeam())
                 .build().toEntity());
-//        return playerRepository.save(requestPlayerDto.toEntity(
-//                gameRepository.findById(requestPlayerDto.getGameId()).orElseThrow(),
-//                accountRepository.findById(requestPlayerDto.getAccountId()).orElseThrow())
-//        );
     }
 }
