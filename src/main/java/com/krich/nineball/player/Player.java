@@ -1,7 +1,7 @@
-package com.match.nineball.challenger;
+package com.krich.nineball.player;
 
-import com.match.nineball.account.Account;
-import com.match.nineball.room.Room;
+import com.krich.nineball.account.Account;
+import com.krich.nineball.match.Match;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -10,8 +10,8 @@ import javax.persistence.*;
 @Entity
 @NoArgsConstructor
 @Getter
-@Table(name = "challenger")
-public class Challenger {
+@Table(name = "player")
+public class Player {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,8 +19,8 @@ public class Challenger {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "room_id", nullable = false)
-    private Room room;
+    @JoinColumn(name = "match_id", nullable = false)
+    private Match match;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "account_id", nullable = false)

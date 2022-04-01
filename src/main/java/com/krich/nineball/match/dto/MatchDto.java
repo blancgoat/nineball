@@ -1,6 +1,6 @@
-package com.match.nineball.room.dto;
+package com.krich.nineball.match.dto;
 
-import com.match.nineball.room.Room;
+import com.krich.nineball.match.Match;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -9,11 +9,11 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class RoomDto {
+public class MatchDto {
 
     @NoArgsConstructor(access = AccessLevel.PROTECTED)
     @Getter
-    public static class RoomPostReq {
+    public static class MatchPostReq {
         private LocalDateTime matchUpStart;
         private LocalDateTime matchUpEnd;
         private LocalDateTime matchStart;
@@ -23,7 +23,7 @@ public class RoomDto {
         private double addressY;
 
         @Builder
-        public RoomPostReq(LocalDateTime matchUpStart, LocalDateTime matchUpEnd, LocalDateTime matchStart, LocalDateTime matchEnd, String address, double addressX, double addressY) {
+        public MatchPostReq(LocalDateTime matchUpStart, LocalDateTime matchUpEnd, LocalDateTime matchStart, LocalDateTime matchEnd, String address, double addressX, double addressY) {
             this.matchUpStart = matchUpStart;
             this.matchUpEnd = matchUpEnd;
             this.matchStart = matchStart;
@@ -33,8 +33,8 @@ public class RoomDto {
             this.addressY = addressY;
         }
 
-        public Room toEntity() {
-            return Room.builder()
+        public Match toEntity() {
+            return Match.builder()
                     .matchUpStart(matchUpStart)
                     .matchUpEnd(matchUpEnd)
                     .matchStart(matchStart)

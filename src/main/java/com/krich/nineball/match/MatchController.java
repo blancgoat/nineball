@@ -1,6 +1,6 @@
-package com.match.nineball.room;
+package com.krich.nineball.match;
 
-import com.match.nineball.room.dto.RoomDto;
+import com.krich.nineball.match.dto.MatchDto;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.RequiredArgsConstructor;
@@ -11,26 +11,26 @@ import java.time.LocalDateTime;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/v1/room")
-public class RoomController {
+@RequestMapping("/api/v1/match")
+public class MatchController {
 
-    private final RoomService roomService;
+    private final MatchService matchService;
 
     @PostMapping
-    public Room postRoom(@RequestBody RoomDto.RoomPostReq req) {
-        return roomService.createRoom(req);
+    public Match postMatch(@RequestBody MatchDto.MatchPostReq req) {
+        return matchService.createMatch(req);
     }
 
     @GetMapping("/{id}")
-    public Room getRoom(@PathVariable Long id) {
-        return roomService.getRoom(id);
+    public Match getMatch(@PathVariable Long id) {
+        return matchService.getMatch(id);
     }
 
     @GetMapping
-    public Iterable<Room> getRoomsByDate(
+    public Iterable<Match> getMatchesByDate(
             @DateTimeFormat(pattern = "yyyyMMddHHmmss")
             @Parameter(schema = @Schema(type = "string", format = "date", example = "20220217000000"))
             @RequestParam(name = "date") LocalDateTime paramDate) {
-        return roomService.getRoomsByDate(paramDate);
+        return matchService.getMatchesByDate(paramDate);
     }
 }

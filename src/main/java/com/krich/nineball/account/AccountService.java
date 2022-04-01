@@ -1,7 +1,7 @@
-package com.match.nineball.account;
+package com.krich.nineball.account;
 
-import com.match.nineball.account.enums.AccountStatus;
-import com.match.nineball.account.dto.CreateAccountDto;
+import com.krich.nineball.account.enums.AccountStatus;
+import com.krich.nineball.account.dto.CreateAccountDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

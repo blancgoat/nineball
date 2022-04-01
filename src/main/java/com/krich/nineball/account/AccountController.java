@@ -1,6 +1,6 @@
-package com.match.nineball.account;
+package com.krich.nineball.account;
 
-import com.match.nineball.account.dto.CreateAccountDto;
+import com.krich.nineball.account.dto.CreateAccountDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

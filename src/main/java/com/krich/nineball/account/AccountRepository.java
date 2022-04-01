@@ -1,6 +1,6 @@
-package com.match.nineball.account;
+package com.krich.nineball.account;
 
-import com.match.nineball.account.enums.AccountStatus;
+import com.krich.nineball.account.enums.AccountStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

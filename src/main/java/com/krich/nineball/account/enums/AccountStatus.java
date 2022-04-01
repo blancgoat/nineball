@@ -1,4 +1,4 @@
-package com.match.nineball.account.enums;
+package com.krich.nineball.account.enums;
 
 import lombok.Getter;
 

@@ -1,6 +1,6 @@
-package com.match.nineball.account;
+package com.krich.nineball.account;
 
-import com.match.nineball.account.enums.Provider;
+import com.krich.nineball.account.enums.Provider;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

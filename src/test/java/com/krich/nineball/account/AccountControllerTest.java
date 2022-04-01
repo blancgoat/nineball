@@ -1,8 +1,8 @@
-package com.match.nineball.account;
+package com.krich.nineball.account;
 
 import com.google.gson.Gson;
-import com.match.nineball.account.dto.CreateAccountDto;
-import com.match.nineball.account.enums.Provider;
+import com.krich.nineball.account.dto.CreateAccountDto;
+import com.krich.nineball.account.enums.Provider;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
