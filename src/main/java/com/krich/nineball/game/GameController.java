@@ -1,6 +1,6 @@
-package com.krich.nineball.match;
+package com.krich.nineball.game;
 
-import com.krich.nineball.match.dto.MatchDto;
+import com.krich.nineball.game.dto.CreateGameDto;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.RequiredArgsConstructor;
@@ -11,26 +11,26 @@ import java.time.LocalDateTime;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/v1/match")
-public class MatchController {
+@RequestMapping("/api/v1/game")
+public class GameController {
 
-    private final MatchService matchService;
+    private final GameService gameService;
 
     @PostMapping
-    public Match postMatch(@RequestBody MatchDto.MatchPostReq req) {
-        return matchService.createMatch(req);
+    public Game postGame(@RequestBody CreateGameDto req) {
+        return gameService.createGame(req);
     }
 
     @GetMapping("/{id}")
-    public Match getMatch(@PathVariable Long id) {
-        return matchService.getMatch(id);
+    public Game getGame(@PathVariable Long id) {
+        return gameService.getGame(id);
     }
 
     @GetMapping
-    public Iterable<Match> getMatchesByDate(
+    public Iterable<Game> getGamesByDate(
             @DateTimeFormat(pattern = "yyyyMMddHHmmss")
             @Parameter(schema = @Schema(type = "string", format = "date", example = "20220217000000"))
             @RequestParam(name = "date") LocalDateTime paramDate) {
-        return matchService.getMatchesByDate(paramDate);
+        return gameService.getGamesByDate(paramDate);
     }
 }

@@ -1,7 +1,9 @@
 package com.krich.nineball.player;
 
 import com.krich.nineball.account.Account;
-import com.krich.nineball.match.Match;
+import com.krich.nineball.game.Game;
+import com.krich.nineball.player.enums.Team;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -19,8 +21,8 @@ public class Player {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "match_id", nullable = false)
-    private Match match;
+    @JoinColumn(name = "game_id", nullable = false)
+    private Game game;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "account_id", nullable = false)
@@ -31,4 +33,17 @@ public class Player {
 
     @Column(name = "is_master", nullable = false)
     private Boolean isMaster;
+
+    @Column(name = "team",
+            nullable = false,
+            columnDefinition = "ENUM('RED', 'BLUE', 'WHITE')")
+    private Team team;
+
+    @Builder()
+    public Player(Game game, Account account, Boolean isMaster, Team team) {
+        this.game = game;
+        this.account = account;
+        this.isMaster = isMaster;
+        this.team = team;
+    }
 }

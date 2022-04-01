@@ -1,5 +1,6 @@
 package com.krich.nineball.account.enums;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import javax.persistence.AttributeConverter;
@@ -7,14 +8,11 @@ import javax.persistence.Converter;
 import java.util.stream.Stream;
 
 @Getter
+@AllArgsConstructor
 public enum Provider {
     KAKAO("KAKAO");
 
     private String provider;
-
-    Provider(String provider) {
-        this.provider = provider;
-    }
 }
 
 @Converter(autoApply = true)

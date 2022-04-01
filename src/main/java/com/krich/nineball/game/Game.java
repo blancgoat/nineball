@@ -1,18 +1,18 @@
-package com.krich.nineball.match;
+package com.krich.nineball.game;
 
+import com.krich.nineball.game.enums.GameType;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Objects;
 
 @Entity
 @NoArgsConstructor
 @Getter
-@Table(name = "match")
-public class Match {
+@Table(name = "game")
+public class Game {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,17 +22,22 @@ public class Match {
     @Column(name = "is_delete", nullable = false)
     private Boolean isDelete = false;
 
+    @Column(name = "game_type",
+            nullable = false,
+            columnDefinition = "ENUM('TABLE_TENNIS')")
+    private GameType gameType;
+
     @Column(name = "match_up_start", nullable = false)
     private LocalDateTime matchUpStart;
 
     @Column(name = "match_up_end", nullable = false)
     private LocalDateTime matchUpEnd;
 
-    @Column(name = "match_start", nullable = false)
-    private LocalDateTime matchStart;
+    @Column(name = "game_start", nullable = false)
+    private LocalDateTime gameStart;
 
-    @Column(name = "match_end")
-    private LocalDateTime matchEnd;
+    @Column(name = "game_end")
+    private LocalDateTime gameEnd;
 
     @Column(nullable = false)
     private String address;
@@ -44,11 +49,12 @@ public class Match {
     private double addressY;
 
     @Builder()
-    public Match(LocalDateTime matchUpStart, LocalDateTime matchUpEnd, LocalDateTime matchStart, LocalDateTime matchEnd, String address, double addressX, double addressY) {
+    public Game(GameType gameType, LocalDateTime matchUpStart, LocalDateTime matchUpEnd, LocalDateTime gameStart, LocalDateTime gameEnd, String address, double addressX, double addressY) {
+        this.gameType = gameType;
         this.matchUpStart = matchUpStart;
         this.matchUpEnd = matchUpEnd;
-        this.matchStart = matchStart;
-        this.matchEnd = matchEnd;
+        this.gameStart = gameStart;
+        this.gameEnd = gameEnd;
         this.address = address;
         this.addressX = addressX;
         this.addressY = addressY;
