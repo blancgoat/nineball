@@ -17,8 +17,8 @@ public class GameController {
     private final GameService gameService;
 
     @PostMapping
-    public Game postGame(@RequestBody CreateGameDto req) {
-        return gameService.createGame(req);
+    public Game postGame(@RequestBody CreateGameDto createGameDto) {
+        return gameService.createGame(createGameDto);
     }
 
     @GetMapping("/{id}")

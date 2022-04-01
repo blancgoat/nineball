@@ -10,16 +10,16 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class AccountService {
 
-    private final AccountRepository accountRepository;
+    private final SocialRepository socialRepository;
 
     @Transactional
     public Social createAccountAndSocial(CreateAccountDto req) {
-        return accountRepository.save(req.toEntity());
+        return socialRepository.save(req.toEntity());
     }
 
     @Transactional(readOnly = true)
     public Social getAccountAndSocialByAccountId(Long id) {
-        return accountRepository.findSocialByAccountIdAndStatus(id, AccountStatus.ACTIVE);
+        return socialRepository.findSocialByAccountIdAndStatus(id, AccountStatus.ACTIVE);
     }
 
 }

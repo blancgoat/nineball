@@ -12,8 +12,8 @@ public class AccountController {
     private final AccountService accountService;
 
     @PostMapping()
-    public Social postAccount(@RequestBody CreateAccountDto req) {
-        return accountService.createAccountAndSocial(req);
+    public Social postAccount(@RequestBody CreateAccountDto createAccountDto) {
+        return accountService.createAccountAndSocial(createAccountDto);
     }
 
     @GetMapping("/{id}")
